@@ -1,3 +1,5 @@
+#ECS Task Definition
+#https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
 
 resource "aws_ecs_task_definition" "task_definition" {
   container_definitions = var.container_definition
@@ -13,4 +15,12 @@ resource "aws_ecs_task_definition" "task_definition" {
       host_path = volume.value.host_path
     }
   }
+}
+
+#Cloudwatch log group
+#https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.html
+
+resource "aws_cloudwatch_log_group" "log_group" {
+  count = var.create_log_group == true ? 1 : 0
+  name = "/ecs/${var.container_family}"
 }
