@@ -7,5 +7,5 @@ output "task_definition_arn" {
 #CloudWatch Log Group
 
 output "task_definition_log_group" {
-  value = aws_cloudwatch_log_group.log_group.name
+  value = aws_cloudwatch_log_group.log_group.*.name
 }

@@ -5,26 +5,8 @@ variable "container_definition" {
   description = "Container definition JSON"
 }
 
-variable "requires_compatiblities" {
-  description = "Requires compatiblities flag EC2/Fargate"
-  type        = list(string)
-}
-
-variable "volumes" {
-  description = "Specify volumes that can be mounted to the container"
-  type = list(object({
-    name      = string
-    host_path = string
-  }))
-}
-
-variable "task_role_arn" {
-  description = "IAM role that allows the containers in the task permission to call the AWS APIs that are specified in its associated policies on your behalf"
-  type        = string
-}
-
-variable "execution_role_arn" {
-  description = "IAM role that allows the containers in the task to pull container images and publish container logs to CloudWatch on your behalf"
+variable "container_family" {
+  description = "Name for multiple versions of the task definition"
   type        = string
 }
 
@@ -33,9 +15,27 @@ variable "network_mode" {
   type        = string
 }
 
-variable "container_family" {
-  description = "Name for multiple versions of the task definition"
+variable "requires_compatiblities" {
+  description = "Requires compatiblities flag EC2/Fargate"
+  type        = list(string)
+}
+
+variable "execution_role_arn" {
+  description = "IAM role that allows the containers in the task to pull container images and publish container logs to CloudWatch on your behalf"
   type        = string
+}
+
+variable "task_role_arn" {
+  description = "IAM role that allows the containers in the task permission to call the AWS APIs that are specified in its associated policies on your behalf"
+  type        = string
+}
+
+variable "volumes" {
+  description = "Specify volumes that can be mounted to the container"
+  type = list(object({
+    name      = string
+    host_path = string
+  }))
 }
 
 variable "create_log_group" {
