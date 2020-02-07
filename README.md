@@ -43,6 +43,12 @@ Docker volume drivers (also referred to as plugins) are used to integrate the vo
 
 | Name | Description | Type | Default | Required |
 |------|:-------------:|:----:|:-----:|:-----:|
+| name_tag | EFS name | string | n/a | yes |
+| appid_tag | Application ID | number | n/a | yes |
+| env_tag | Environment ID (Dev/QA/Prod) | string | n/a | yes |
+| awsaccount_tag | AWS Account number | string | n/a | yes |
+| function_tag | Function or purpose of the instance | string | n/a | yes |
+| created_by | Created by ID e-number@lpsvcs.com | string | n/a | yes |
 | container_definition | Container definition JSON | string | n/a | yes |
 | requires_compatibilities | Requires compatibilities flag EC2/Fargate | list(string) | n/a | yes |
 | volumes | Volumes to be mounted to the container | list(object) | n/a | yes |

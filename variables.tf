@@ -1,6 +1,45 @@
 # ECS Task Definition Variables
 # https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html
 
+#General variables
+
+variable "name_tag" {
+  description = "Environment Name"
+  type        = string
+}
+
+variable "appid_tag" {
+  description = "Identifier for the application using the instance"
+  type        = string
+}
+
+variable "env_tag" {
+  description = "Environment(s) that this parameter will be referenced."
+  type        = string
+}
+
+variable "awsaccount_tag" {
+  description = "Account Name"
+  type        = string
+}
+
+variable "function_tag" {
+  description = "Function or purpose of the instance"
+  type        = string
+}
+
+variable "createdby_tag" {
+  description = "e-number@lpsvcs.com"
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "VPC ID"
+  type        = string
+}
+
+#Module Specific Variables
+
 variable "container_definition" {
   description = "Container definition JSON"
 }

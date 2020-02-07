@@ -15,6 +15,14 @@ resource "aws_ecs_task_definition" "task_definition" {
       host_path = volume.value.host_path
     }
   }
+  tags = {
+    Name       = "${var.name_tag}"
+    appid      = "${var.appid_tag}"
+    env        = "${var.env_tag}"
+    awsaccount = "${var.awsaccount_tag}"
+    function   = "${var.function_tag}"
+    createdby  = "${var.createdby_tag}"
+  }
 }
 
 #Cloudwatch log group
